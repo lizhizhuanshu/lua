@@ -799,6 +799,7 @@ Table *luaH_new (lua_State *L) {
   t->flags = maskflags;  /* table has no metamethod fields */
   t->array = NULL;
   t->alimit = 0;
+  t->onlyread = 0;
   setnodevector(L, t, 0);
   return t;
 }

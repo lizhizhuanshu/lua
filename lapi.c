@@ -1017,6 +1017,15 @@ LUA_API int lua_setiuservalue (lua_State *L, int idx, int n) {
 }
 
 
+LUA_API int lua_setonlyread(lua_State*L, int idx, int is) {
+  Table *t;
+  lua_lock(L);
+  t = gettable(L, idx);
+  t->onlyread = is;
+  lua_unlock(L);
+}
+
+
 /*
 ** 'load' and 'call' functions (run Lua code)
 */

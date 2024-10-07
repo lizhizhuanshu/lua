@@ -785,6 +785,7 @@ typedef struct Table {
   Node *node;
   struct Table *metatable;
   GCObject *gclist;
+  lu_byte onlyread;
 } Table;
 
 
