@@ -1021,8 +1021,10 @@ LUA_API int lua_setonlyread(lua_State*L, int idx, int is) {
   Table *t;
   lua_lock(L);
   t = gettable(L, idx);
+  int old = t->onlyread;
   t->onlyread = is;
   lua_unlock(L);
+  return old;
 }
 
 
